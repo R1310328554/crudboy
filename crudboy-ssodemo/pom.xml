@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+<!--    <packaging>pom</packaging>-->
+<!--    <modules>-->
+<!--        <module>springboot_custome_starter</module>-->
+<!--        <module>artisan-spring-boot-starter</module>-->
+<!--        <module>artisan-spring-boot-starter-autoconfigurer</module>-->
+<!--    </modules>-->
+<!--    <parent>-->
+<!--        <groupId>org.springframework.boot</groupId>-->
+<!--        <artifactId>spring-boot-starter-parent</artifactId>-->
+<!--        <version>2.3.3.RELEASE</version>-->
+<!--        <relativePath/>-->
+<!--    </parent>-->
+    <groupId>com.luokup</groupId>
+    <artifactId>crudboy-ssodemo</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>crudboy-ssodemo</name>
+    <description>crudboy ssodemo </description>
+
+    <properties>
+        <jdk.version>1.8</jdk.version>
+        <java.version>1.8</java.version>
+        <java.compile.version>1.8</java.compile.version>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+
+<!--        <maven.compiler.source>${java.version}</maven.compiler.source>-->
+<!--        <maven.compiler.target>${java.version}</maven.compiler.target>-->
+        <maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
+        <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
+        <!-- 看看咋放到 bom 里 -->
+        <lombok.version>1.18.28</lombok.version>
+        <spring.boot.version>2.7.14</spring.boot.version>
+        <mapstruct.version>1.5.5.Final</mapstruct.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <revision>1.8.0-snapshot</revision>
+        <!-- 统一依赖管理 -->
+        <spring.boot.version>2.7.14</spring.boot.version>
+        <!-- Web 相关 -->
+        <springdoc.version>1.6.15</springdoc.version>
+        <knife4j.version>4.1.0</knife4j.version>
+        <servlet.versoin>2.5</servlet.versoin>
+        <!-- DB 相关 -->
+        <druid.version>1.2.18</druid.version>
+        <mybatis-plus.version>3.5.3.1</mybatis-plus.version>
+        <mybatis-plus-generator.version>3.5.3.1</mybatis-plus-generator.version>
+        <dynamic-datasource.version>3.6.1</dynamic-datasource.version>
+        <mybatis-plus-join-boot-starter.version>1.4.5</mybatis-plus-join-boot-starter.version>
+        <redisson.version>3.18.0</redisson.version>
+        <dm8.jdbc.version>8.1.2.141</dm8.jdbc.version>
+        <!-- 服务保障相关 -->
+        <lock4j.version>2.2.3</lock4j.version>
+        <resilience4j.version>1.7.1</resilience4j.version>
+        <!-- 监控相关 -->
+        <skywalking.version>8.12.0</skywalking.version>
+        <spring-boot-admin.version>2.7.10</spring-boot-admin.version>
+        <opentracing.version>0.33.0</opentracing.version>
+        <!-- Test 测试相关 -->
+        <podam.version>7.2.11.RELEASE</podam.version>
+        <jedis-mock.version>1.0.7</jedis-mock.version>
+        <mockito-inline.version>4.11.0</mockito-inline.version>
+        <!-- Bpm 工作流相关 -->
+        <flowable.version>6.8.0</flowable.version>
+        <!-- 工具类相关 -->
+        <captcha-plus.version>1.0.6</captcha-plus.version>
+        <jsoup.version>1.15.4</jsoup.version>
+        <lombok.version>1.18.28</lombok.version>
+        <mapstruct.version>1.5.5.Final</mapstruct.version>
+        <hutool.version>5.8.8</hutool.version>
+        <easyexcel.verion>3.3.2</easyexcel.verion>
+        <velocity.version>2.3</velocity.version>
+        <screw.version>1.0.5</screw.version>
+        <fastjson.version>1.2.83</fastjson.version>
+        <guava.version>32.0.1-jre</guava.version>
+        <guice.version>5.1.0</guice.version>
+        <transmittable-thread-local.version>2.14.2</transmittable-thread-local.version>
+        <commons-net.version>3.9.0</commons-net.version>
+        <jsch.version>0.1.55</jsch.version>
+        <tika-core.version>2.7.0</tika-core.version>
+        <netty-all.version>4.1.90.Final</netty-all.version>
+        <ip2region.version>2.7.0</ip2region.version>
+        <!-- 三方云服务相关 -->
+        <okio.version>3.0.0</okio.version>
+        <okhttp3.version>4.10.0</okhttp3.version>
+        <commons-io.version>2.11.0</commons-io.version>
+        <minio.version>8.5.4</minio.version>
+        <aliyun-java-sdk-core.version>4.6.3</aliyun-java-sdk-core.version>
+        <aliyun-java-sdk-dysmsapi.version>2.2.1</aliyun-java-sdk-dysmsapi.version>
+        <tencentcloud-sdk-java.version>3.1.758</tencentcloud-sdk-java.version>
+        <justauth.version>1.0.3</justauth.version>
+        <jimureport.version>1.5.8</jimureport.version>
+        <xercesImpl.version>2.12.2</xercesImpl.version>
+        <weixin-java.version>4.5.0</weixin-java.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.luokup</groupId>
+            <artifactId>crudboy-framework</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <excludes>
+                    <exclude>**/*.java</exclude>
+                </excludes>
+            </resource>
+        </resources>
+        <!-- 设置构建的 jar 包名 -->
+        <finalName>${project.artifactId}</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+
+    <!-- 使用 huawei / aliyun 的 Maven 源，提升下载速度 -->
+    <repositories>
+        <repository>
+            <id>huaweicloud</id>
+            <name>huawei</name>
+            <url>https://mirrors.huaweicloud.com/repository/maven/</url>
+        </repository>
+        <repository>
+            <id>aliyunmaven</id>
+            <name>aliyun</name>
+            <url>https://maven.aliyun.com/repository/public</url>
+        </repository>
+    </repositories>
+
+
+</project>

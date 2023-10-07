@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <option name="BUILD_PROCESS_HEAP_SIZE" value="1700" />
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="crudboy-ssodemo" />
+        <module name="crudboy-framework" />
+        <module name="crudboy-emall" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="crudboy" target="1.8" />
+      <module name="crudboy (1)" target="1.8" />
+      <module name="crudboy (2)" target="1.8" />
+      <module name="crudboy-emall" target="1.8" />
+      <module name="crudboy-framework" target="1.8" />
+      <module name="crudboy-ssodemo" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
