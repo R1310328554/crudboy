@@ -29,6 +29,7 @@ import cn.iocoder.yudao.module.infra.framework.codegen.config.CodegenProperties;
 import com.google.common.collect.ImmutableTable;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Table;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
@@ -52,6 +53,9 @@ import static cn.hutool.core.text.CharSequenceUtil.*;
 @Component
 public class CodegenEngine {
 
+    @Value("${yudao.web.methodNameAsPaths:true}")
+    public static boolean methodNameAsPaths;
+
     /**
      * 后端的模板配置
      *
@@ -67,7 +71,7 @@ public class CodegenEngine {
             .put(javaTemplatePath("controller/vo/updateReqVO"), javaModuleImplVOFilePath("UpdateReqVO"))
             .put(javaTemplatePath("controller/vo/exportReqVO"), javaModuleImplVOFilePath("ExportReqVO"))
             .put(javaTemplatePath("controller/vo/excelVO"), javaModuleImplVOFilePath("ExcelVO"))
-            .put(javaTemplatePath("controller/controller"), javaModuleImplControllerFilePath())
+            .put(javaTemplatePath(methodNameAsPaths ? "controller/controller": "controller/controllerNew"), javaModuleImplControllerFilePath())
             .put(javaTemplatePath("convert/convert"),
                     javaModuleImplMainFilePath("convert/${table.businessName}/${table.className}Convert"))
             .put(javaTemplatePath("dal/do"),
@@ -236,7 +240,11 @@ public class CodegenEngine {
     }
 
     private static String javaTemplatePath(String path) {
-        return "codegen/java/" + path + ".vm";
+        String javabase = "java";
+        if (methodNameAsPaths) {
+            javabase = "javaMinimalism";// 极简主义
+        }
+        return "codegen/" + javabase + "/" + path + ".vm";
     }
 
     private static String javaModuleImplVOFilePath(String path) {

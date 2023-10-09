@@ -1,6 +1,7 @@
 package cn.iocoder.yudao.module;
 
 import cn.iocoder.yudao.framework.common.pojo.CommonResult;
+import cn.iocoder.yudao.module.infra.service.codegen.inner.CodegenEngine;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.ConfigurableBootstrapContext;
 import org.springframework.boot.SpringApplication;
@@ -40,5 +41,7 @@ public class FrameworkInitial  implements ApplicationListener<ApplicationContext
         System.out.println("methodNameAsPaths = " + methodNameAsPaths); // 行不通， 因为不会扫描 FrameworkInitial 中的 @value
         System.out.println("methodNameAsPaths2 = " + methodNameAsPaths2);
 //        RequestMappingInfo.methodNameAsPathsaa = Boolean.parseBoolean(methodNameAsPaths2);
+        CodegenEngine.methodNameAsPaths = Boolean.parseBoolean(methodNameAsPaths2);
+
     }
 }
