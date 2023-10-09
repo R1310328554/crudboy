@@ -22,7 +22,7 @@ import static ${basePackage}.module.${table.moduleName}.enums.ErrorCodeConstants
  */
 @Service
 @Validated
-public class ${table.className}Service implements IService {
+public class ${table.className}ServiceImpl implements ${table.className}Service {
 
     @Resource
     private ${table.className}Mapper mapper;
@@ -53,16 +53,9 @@ public class ${table.className}Service implements IService {
         mapper.deleteById(id);
     }
 
-    private void validateExists0(${primaryColumn.javaType} id) {
+    private void validateExists(${primaryColumn.javaType} id) {
         if (mapper.selectById(id) == null) {
             throw exception(${simpleClassName_underlineCase.toUpperCase()}_NOT_EXISTS);
-        }
-    }
-
-    public void validateMsdsExists(${primaryColumn.javaType} id) {
-        Long count = msdsMapper.selectCount(${primaryColumn..columnName.toLowerCase()}, id);
-        if (count == null || count == 0) {
-            throw exception(MSDS_NOT_EXISTS);
         }
     }
 
