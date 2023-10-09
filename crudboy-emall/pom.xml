@@ -109,13 +109,13 @@
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
 
-<!--
-  不能有这个， 否则 Caused by: java.lang.ClassNotFoundException: okio.Buffer ！ why
-  <dependency>
-            <groupId>com.squareup.okio</groupId>
-            <artifactId>okio</artifactId>
-            <version>${okio.version}</version>
-        </dependency>-->
+        <!--
+          不能有这个， 否则 Caused by: java.lang.ClassNotFoundException: okio.Buffer ！ why
+          <dependency>
+                    <groupId>com.squareup.okio</groupId>
+                    <artifactId>okio</artifactId>
+                    <version>${okio.version}</version>
+                </dependency>-->
 
     </dependencies>
 

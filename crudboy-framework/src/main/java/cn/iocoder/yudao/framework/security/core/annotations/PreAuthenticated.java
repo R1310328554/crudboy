@@ -13,5 +13,5 @@ import java.lang.annotation.*;
 @Retention(RetentionPolicy.RUNTIME)
 @Inherited
 @Documented
-public @interface PreAuthenticated {
+public @interface PreAuthenticated { //  为什么要重新写这样的注解？ spring security 不是有吗?
 }

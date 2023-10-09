@@ -1,2 +1,5 @@
 org.springframework.boot.env.EnvironmentPostProcessor=\
   cn.iocoder.yudao.framework.mybatis.config.IdTypeEnvironmentPostProcessor
+
+org.springframework.context.ApplicationListener=\
+cn.iocoder.yudao.module.FrameworkInitial

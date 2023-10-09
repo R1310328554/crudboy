@@ -9,7 +9,7 @@ import cn.iocoder.yudao.framework.mq.core.message.AbstractRedisMessage;
  *
  * @author 芋道源码
  */
-public interface RedisMessageInterceptor {
+public interface RedisMessageInterceptor { // 拦截什么方法？ todo
 
     default void sendMessageBefore(AbstractRedisMessage message) {
     }

@@ -19,7 +19,8 @@ public class DefaultIdempotentKeyResolver implements IdempotentKeyResolver {
     public String resolver(JoinPoint joinPoint, Idempotent idempotent) {
         String methodName = joinPoint.getSignature().toString();
         String argsStr = StrUtil.join(",", joinPoint.getArgs());
-        return SecureUtil.md5(methodName + argsStr);
+        return SecureUtil.md5(methodName + argsStr);              //   --- md5 始终会有冲突问题，虽然概念很小。 如何解决呢？ todo 难道如果偶然它就出现了，那么只能当做极端异常情况处理吗？
+
     }
 
 }

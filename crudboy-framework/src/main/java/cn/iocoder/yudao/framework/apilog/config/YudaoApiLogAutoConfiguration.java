@@ -19,6 +19,10 @@ import org.springframework.context.annotation.Bean;
 import javax.servlet.Filter;
 
 @AutoConfiguration(after = YudaoWebAutoConfiguration.class)
+@ConditionalOnProperty(
+        name = {"knife4j.enable"},
+        havingValue = "true"
+)
 public class YudaoApiLogAutoConfiguration {
 
     @Bean

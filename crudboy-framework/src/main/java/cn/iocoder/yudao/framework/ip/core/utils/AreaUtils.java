@@ -26,7 +26,7 @@ public class AreaUtils {
      * 初始化 SEARCHER
      */
     @SuppressWarnings("InstantiationOfUtilityClass")
-    private final static AreaUtils INSTANCE = new AreaUtils();
+    private final static AreaUtils INSTANCE = new AreaUtils(); // todo 既然是util 工具类， 为何放 framework 目录下 里面作为一个模块一样的 ？？
 
     /**
      * Area 内存缓存，提升访问速度

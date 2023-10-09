@@ -14,7 +14,7 @@ import org.springframework.core.env.ConfigurableEnvironment;
 import java.util.Set;
 
 /**
- * 当 IdType 为 {@link IdType#NONE} 时，根据 PRIMARY 数据源所使用的数据库，自动设置
+ * 当 IdType 为 {@link IdType#NONE} 时，根据 PRIMARY 数据源所使用的数据库，自动设置； todo 如果不是none呢？
  *
  * @author 芋道源码
  */
