@@ -530,8 +530,8 @@ public class Chinese2VariableNameUtil {
         ret = ret.replaceAll(" ", "_");
         ret = ret.replace("/", "_");   // bug 如果 camelcase 这里就不能出现下划线。
 //        ret = StrUtil.toUnderlineCase(ret);   // 必须要是 大写， 才会进行转换。。 对于 geologic hazard 并不会转换为 geologic_hazard
-        ret = StrUtil.toCamelCase(ret);
-        ret = StrUtil.upperFirst(ret);
+//        ret = StrUtil.toCamelCase(ret);
+//        ret = StrUtil.upperFirst(ret);
         return ret;
     }
 }

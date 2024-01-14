@@ -3,6 +3,7 @@ package cn.iocoder.yudao.module.system.dal.dataobject.permission;
 import cn.iocoder.yudao.framework.common.enums.CommonStatusEnum;
 import cn.iocoder.yudao.framework.mybatis.core.dataobject.BaseDO;
 import cn.iocoder.yudao.module.system.enums.permission.MenuTypeEnum;
+import com.alibaba.excel.annotation.ExcelProperty;
 import com.baomidou.mybatisplus.annotation.KeySequence;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
@@ -33,6 +34,7 @@ public class MenuDO extends BaseDO {
     /**
      * 菜单名称
      */
+    @ExcelProperty("菜单名称")
     private String name;
     /**
      * 权限标识
@@ -44,12 +46,14 @@ public class MenuDO extends BaseDO {
      * - 对于后端，配合 @PreAuthorize 注解，配置 API 接口需要该权限，从而对 API 接口进行权限控制。
      * - 对于前端，配合前端标签，配置按钮是否展示，避免用户没有该权限时，结果可以看到该操作。
      */
+    @ExcelProperty("权限标识")
     private String permission;
     /**
      * 菜单类型
      *
      * 枚举 {@link MenuTypeEnum}
      */
+    @ExcelProperty("菜单类型")
     private Integer type;
     /**
      * 显示顺序

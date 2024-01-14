@@ -1,6 +1,7 @@
 package cn.iocoder.yudao.module.member.service.point;
 
 import cn.iocoder.yudao.framework.common.pojo.PageResult;
+import cn.iocoder.yudao.framework.mybatis.core.query.LambdaQueryWrapperX;
 import cn.iocoder.yudao.module.member.api.user.MemberUserApi;
 import cn.iocoder.yudao.module.member.api.user.dto.MemberUserRespDTO;
 import cn.iocoder.yudao.module.member.controller.admin.point.vo.recrod.MemberPointRecordPageReqVO;
@@ -46,7 +47,13 @@ public class MemberPointRecordServiceImpl implements MemberPointRecordService {
             userIds = convertSet(users, MemberUserRespDTO::getId);
         }
         // 执行查询
-        return recordMapper.selectPage(pageReqVO, userIds);
+
+        return recordMapper.selectPage(pageReqVO, new LambdaQueryWrapperX<MemberPointRecordDO>()
+                .inIfPresent(MemberPointRecordDO::getUserId, userIds)
+                .eqIfPresent(MemberPointRecordDO::getBizType, pageReqVO.getBizType())
+                .likeIfPresent(MemberPointRecordDO::getTitle, pageReqVO.getTitle())
+                .orderByDesc(MemberPointRecordDO::getId));
+//        return recordMapper.selectPage(pageReqVO, userIds);
     }
 
 }

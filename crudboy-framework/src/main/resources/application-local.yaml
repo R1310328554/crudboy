@@ -189,8 +189,8 @@ wx:
 yudao:
   captcha:
     enable: false # 本地环境，暂时关闭图片验证码，方便登录等接口的测试；
-#  security:
-#    mock-enable: true
+  security:
+    mock-enable: true
   xss:
     enable: false
     exclude-urls: # 如下两个 url，仅仅是为了演示，去掉配置也没关系

@@ -159,10 +159,15 @@ public class GenerateSqlUtil {
 //        Chinese2VariableNameUtil.useCache = false;
 
         String dir = "D:\\d\\xg\\减灾能力、野外火源和历史火灾调查表格";
-//        readAllExcelTitles(dir);
+        dir = "D:\\d\\xg\\yjgl\\应急管理最新1009资料\\最新1009资料\\保康林业普查减灾能力整改后数据\\森林火灾风险评估和区划成果\\火险预警系统设施调查表.xlsx";
+        dir = "D:\\d\\xg\\yjgl\\整理后1020资料\\最新1009资料\\保康林业普查减灾能力整改后数据\\减灾能力\\森林火灾风险评估和区划成果\\防火通信指挥系统调查表.xlsx";
+        dir = "D:\\d\\xg\\yjgl\\整理后1020资料\\最新1009资料\\保康林业普查减灾能力整改后数据\\减灾能力\\森林火灾风险评估和区划成果\\其它防火基础设施调查表.xlsx";
+        dir = "D:\\d\\xg\\yjgl\\整理后1020资料\\最新1009资料\\保康林业普查减灾能力整改后数据\\减灾能力\\护林员队伍调查表.xlsx";
+        dir = "D:\\d\\xg\\yjgl\\整理后1020资料\\最新1009资料\\保康林业普查减灾能力整改后数据\\减灾能力\\森林火灾风险评估和区划成果\\调查单位基本情况表.xls";
+        readAllExcelTitles(dir);
 
         String dir2 = "D:\\d\\git\\py\\allPdf1233333333.txt";
-        readerMethod(dir2);
+//        readerMethod(dir2);
 
 //        List<String> ret = genCategory(dir);
 //        dir = "D:\\d\\xg\\应急管理局\\承灾体";
@@ -593,23 +598,19 @@ public class GenerateSqlUtil {
         Set<String> allFields = new HashSet<>();
         List<TableEntity> ret = new ArrayList<>();
         StringBuilder sqls = new StringBuilder();
-        for (File file : d.listFiles(new FilenameFilter() {
-            @Override
-            public boolean accept(File dir, String name) {
-                return name.endsWith(".xls") || name.endsWith(".xlsx");
-            }
-        })) {
-            boolean file1 = file.isFile();
-            if (file1) {
-                TableEntity table = readExcel(file);
-                ret.add(table);
-                String sql = generateSql(table);
-                sqls.append(sql);
-//                break;
-                List<ExcelEntity> fields = table.getFields();
-                for (int i = 0; i < fields.size(); i++) {
-                   ExcelEntity excelEntity = fields.get(i);
-                    allFields.add(excelEntity.getFiledName());
+
+        if (d.isFile()) {
+            extracted(allFields, ret, sqls, d);
+        } else {
+            for (File file : d.listFiles(new FilenameFilter() {
+                @Override
+                public boolean accept(File dir, String name) {
+                    return name.endsWith(".xls") || name.endsWith(".xlsx");
+                }
+            })) {
+                boolean file1 = file.isFile();
+                if (file1) {
+                    extracted(allFields, ret, sqls, file);
                 }
             }
         }
@@ -617,6 +618,19 @@ public class GenerateSqlUtil {
         FileUtil.writeUtf8String(sqls.toString(), "yjgldb.sql");
         System.out.println("allFields = " + allFields);
         return ret;
+    }
+
+    private static void extracted(Set<String> allFields, List<TableEntity> ret, StringBuilder sqls, File file) throws IOException {
+        TableEntity table = readExcel(file);
+        ret.add(table);
+        String sql = generateSql(table);
+        sqls.append(sql);
+//                break;
+        List<ExcelEntity> fields = table.getFields();
+        for (int i = 0; i < fields.size(); i++) {
+           ExcelEntity excelEntity = fields.get(i);
+            allFields.add(excelEntity.getFiledName());
+        }
     }
 
     private static TableEntity readExcel(File file) {
@@ -938,7 +952,7 @@ public class GenerateSqlUtil {
         TableEntity table = new TableEntity();
         List<ExcelEntity> list = new ArrayList<>();
         int lastRowNum = sheet.getLastRowNum();
-        if (startRowNo >= lastRowNum) {
+        if (startRowNo > lastRowNum) {
             return table;
         }
         for (int i = startRowNo; i <= lastRowNum; i++) {
@@ -966,8 +980,14 @@ public class GenerateSqlUtil {
                 entity.setFiledName(stringCellValue);
 
                 if (rowValue != null) {
-                    CellType cellType2 = rowValue.getCell(j).getCellType();
-                    entity.setFiledType(cellType2.name());
+                    Cell cell2 = rowValue.getCell(j);
+                    if (cell2 == null) {
+                        // 森工集团(非必填) 为什么报错..
+                        System.out.println("cell2 = " + stringCellValue + " " + cell1);
+                    } else {
+                        CellType cellType2 = cell2.getCellType();
+                        entity.setFiledType(cellType2.name());
+                    }
                 }
 
                 list.add(entity);

@@ -19,8 +19,8 @@ import static cn.iocoder.yudao.framework.common.exception.enums.GlobalErrorCodeC
  * @author 芋道源码
  */
 @SuppressWarnings("SpringComponentScan") // 忽略 IDEA 无法识别 ${yudao.info.base-package}
-//@SpringBootApplication(scanBasePackages = {"${yudao.info.base-package}.server", "${yudao.info.base-package}.module"})
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = {"${yudao.info.base-package}.framework", "${yudao.info.base-package}.module"})
+//@SpringBootApplication
 public class FrameworkApplication {
 
     public static void main(String[] args) {
