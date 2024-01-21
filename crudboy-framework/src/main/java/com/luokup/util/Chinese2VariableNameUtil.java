@@ -60,12 +60,23 @@ public class Chinese2VariableNameUtil {
         String asd = "受害草原面积(公顷)(非必填)";
         asd = "调查单位基本情况";
 //                victim_cy_area
-        asd = "应急避难种类";
+        asd = "应急避难种类2";
+        if (args.length > 0) {
+            asd = args[0];
+        }
+
         ExcelEntity excelEntity = str2Field(asd);
         System.out.println("excelEntity = " + excelEntity);
 
 //        todo 	jksjbgsfgyddzghsw1myss/fs/f varchar(256) CHARACTER SET utf8mb4  NOT NULL  COMMENT '井口设计标高是否高于当地最高洪水位1m以上',
 
+//        String namex = extractFromSql("");
+
+        System.out.println("asd = " + asd);
+
+    }
+
+    private static String  extractFromSql(String asd) {
 
         asd = "\n" +
                 " -- 菜单 SQL\n" +
@@ -93,10 +104,10 @@ public class Chinese2VariableNameUtil {
                 ");";
         int i = asd.indexOf("'");
         asd = asd.substring(i+1, asd.indexOf("'", i+1));
-
-        System.out.println("asd = " + asd);
+        return asd;
 
     }
+
     public static void main2(String[] args) {
         String[] heads = readAllExcelTitles();
         String titles = "填表单位\t填表人\t联系方式\t省\t市\t县\t乡镇(森林草原经营单位)名称\t护林员数量（人）\t总管护面积（hm²）\t平均管护面积（hm²/人）\t信息化个人终端配备情况\t森工集团(非必填)\t林业管理局(非必填)\t林业局(非必填)\t林场(非必填)";
@@ -121,15 +132,25 @@ public class Chinese2VariableNameUtil {
         s = s.replaceAll("/", "");
         s = s.replaceAll("%", "");
         s = s.replaceAll("\\\\", ""); // /fs/f
-        s = s.replaceAll("\n", " ");
+        s = s.replaceAll("\n", "");
+        s = s.replaceAll("\r", "");
+
+//        notes = notes.replaceAll("\n", ""); // 对于换行符， 是不是全部删除比较好.. ？
+
         String unit = "";
         String filedType = "varchar(256)";
         String attribute = "Y";
+        attribute = "N";
         boolean required = true;
         if (s.endsWith("(非必填)")) {
             s = s.substring(0, s.length() - 5);
             required = false;
             attribute = "N";
+        }
+        if (s.endsWith("(必填)")) {
+            s = s.substring(0, s.length() - 5);
+            required = true;
+            attribute = "Y";
         }
         if (s.endsWith(")")) {
             int parenthesisIdx = s.lastIndexOf("(");
@@ -253,12 +274,51 @@ public class Chinese2VariableNameUtil {
 //    fengli integer COMMENT '风力(级)(非必填)',
 //	fengxiang varchar(256) CHARACTER SET utf8mb4  COMMENT '风向(非必填)',
 //    npe  检测探测装备
-    private static String hanzi2FiledName(final String chinese0, int deep) {
+    private static String hanzi2FiledName(String chinese0, int deep) {
+        if (StrUtil.isEmpty(chinese0)) {
+            return "";
+        }
+        int le = chinese0.length();
+        char c = chinese0.charAt(le - 1);
+        StringBuilder tail = new StringBuilder();
+        while (Character.isDigit(c)) {
+            tail.insert(0, c);
+            chinese0 = chinese0.substring(0, le - 1);
+            le = chinese0.length();
+            c = chinese0.charAt(le - 1);
+        }
+
+        String[] s = chinese0.split("_");
+        if (s.length > 1) {
+            for (int i = 0; i < s.length; i++) {
+                String s1 = s[i]; // 如果此时还有数字， 那么暂时不支持
+                s[i] = hanzi2FiledName(s1, deep, "");
+            }
+        } else {
+            s = chinese0.split("-"); // - _ 做同样的处理。 但一次性 只能支持一种。
+            for (int i = 0; i < s.length; i++) {
+                String s1 = s[i]; // 如果此时还有数字， 那么暂时不支持
+                s[i] = hanzi2FiledName(s1, deep, "");
+            }
+        }
+
+        StringBuilder ret = new StringBuilder();
+        for (int i = 0; i < s.length; i++) {
+            String s1 = s[i];
+            ret.append(s1);
+            ret.append("_");
+        }
+
+        return ret.substring(0, ret.length()-1) + tail.toString();
+    }
+
+    private static String hanzi2FiledName(final String chinese0, int deep, String fixedTail) {
         Object o = translateCacheProperties.get(chinese0);
         if (ObjUtil.isNotEmpty(o) && useCache) {
             return o.toString();
         }
         String chinese = chinese0.replace("（", "(");
+        chinese = chinese.replaceAll("\n", " ");
         chinese = chinese.replace("）", ")");
         chinese = chinese.replace("(", "");
         chinese = chinese.replace(")", "");
@@ -276,6 +336,10 @@ public class Chinese2VariableNameUtil {
 //            ret = PinyinUtil.toPinyin(chinese);
             ret = trans(chinese);
             ret = normalize(ret);
+            if (useCache) {
+                translateCacheProperties.put(chinese, ret);
+                saveLastKey();
+            }
             return ret;
         }
 
@@ -384,6 +448,7 @@ public class Chinese2VariableNameUtil {
         ret = normalize(ret);
         if (useCache) {
             translateCacheProperties.put(chinese0, ret);
+            saveLastKey();
         }
         return ret;
     }
@@ -391,7 +456,7 @@ public class Chinese2VariableNameUtil {
 
     // 重复： 	disaster_relief_tentsd varchar(256) CHARACTER SET utf8mb4  NOT NULL  COMMENT '救灾帐篷',
 
-    public static String translate(final String chinese0) {
+    public static String translate(final String chinese0) {  // translate 和 str2Field ，是否有些重复？
         if (StrUtil.isEmpty(chinese0)) {
             return "";
         }

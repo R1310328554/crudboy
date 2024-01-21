@@ -125,6 +125,15 @@ public class CodegenController {
         return success(ret);
     }
 
+    @Operation(summary = "根据固定格式的字符串，生成对应数据字典")
+    @PutMapping("/gen-dict2")
+    @Parameter(name = "tableId", description = "表编号", required = true, example = "1024")
+    @PreAuthorize("@ss.hasPermission('infra:codegen:update')")
+    public CommonResult<List<String>> genDict2(@RequestParam("tableId") String str) {
+        List<String> ret = codegenService.genDict2(str);
+        return success(ret);
+    }
+
     @Operation(summary = "基于数据库的表结构，同步数据库的表和字段定义")
     @PutMapping("/sync-from-db")
     @Parameter(name = "tableId", description = "表编号", required = true, example = "1024")

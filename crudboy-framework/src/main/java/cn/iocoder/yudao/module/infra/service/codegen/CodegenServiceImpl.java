@@ -302,6 +302,11 @@ public class CodegenServiceImpl implements CodegenService {
         return ret;
     }
 
+    @Override
+    public List<String> genDict2(String str) {
+        return null;
+    }
+
     @NotNull
     private List<String> setDictType(List<CodegenColumnDO> columns) {
         if (CollUtil.isEmpty(columns)) {
