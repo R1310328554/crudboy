@@ -123,7 +123,7 @@ yudao:
     base-package: ${yudao.info.base-package}
     db-schemas: ${spring.datasource.dynamic.datasource.master.name}
     local:
-      path: D:/d/git/ruoyi-vue-pro/yudao-module-yjgl/
+      path: D:/d/git/crudboy/crudboy-framework/crudboy-module-asc/
     front-type: 20 # 前端模版的类型，参见 CodegenFrontTypeEnum 枚举类
   error-code: # 错误码相关配置项
     constants-class-list:
