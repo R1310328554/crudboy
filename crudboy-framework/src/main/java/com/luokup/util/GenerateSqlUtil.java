@@ -168,15 +168,31 @@ public class GenerateSqlUtil {
         dir = "C:\\Users\\xd\\Documents\\崩塌风险点信息调查表.xlsx";
         dir = "C:\\Users\\xd\\Documents\\交通\\保康县风险点与高边坡台账\\公路高边坡信息调查表.xlsx";
 
-        if (args.length > 0) {
-            dir = args[0];
+        for (int i = 0; i < args.length; i++) {
+            String arg = args[i];
+            System.out.println("arg = " + arg);
         }
 
-//        readAllExcelTitles(dir);
+        String optype = "genDdlSQL";
+        if (args.length > 0) {
+            optype = args[0];
+        }
 
         String dir2 = "D:\\d\\git\\py\\allPdf1233333333.txt";
-//        readerMethod(dir2);
+        if (args.length > 1) {
+            dir = args[1];
+            dir2 = args[1];
+        }
 
+        if ("genDdlSQL".equalsIgnoreCase(optype)) {
+            readAllExcelTitles(dir);
+        } else if ("genDictSQL".equalsIgnoreCase(optype)) {
+            testGenDisct2();
+        } else if ("genDdlSQLPdf".equalsIgnoreCase(optype)) {
+            readerMethod(dir2);
+        } else if ("genDdlSQLee".equalsIgnoreCase(optype)) {
+            readAllExcelTitles(dir);
+        } else {
 //        strings1 = genDict("目前稳定状况", "", delimiter);
 //        strings1 = genDict("结构物破损情况", "是、否、", delimiter);
 
@@ -185,8 +201,9 @@ public class GenerateSqlUtil {
 //        ret = genCategory(dir);
 //        dir = "D:\\d\\xg\\应急管理局\\减灾能力";
 //        ret = genCategory(dir);
+        }
 
-        testGenDisct2();
+
     }
 
     private static void testGenDisct2() {
@@ -995,10 +1012,10 @@ public class GenerateSqlUtil {
                 sb.append("  `survey_unit` varchar(64)    DEFAULT '' COMMENT '调查单位',\n");
             }
             if(!allFields.contains("survey_time")) {
-                sb.append("  `survey_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '调查时间',\n");
+                sb.append("  `survey_time` datetime NULL DEFAULT CURRENT_TIMESTAMP COMMENT '调查时间',\n");
             }
             if(!allFields.contains("audit_time")) {
-                sb.append("  `audit_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '核查时间',\n");
+                sb.append("  `audit_time` datetime NULL COMMENT '核查时间',\n");
             }
             if(!allFields.contains("audit_man")) {
                 sb.append("  `audit_man` varchar(64)    DEFAULT '' COMMENT '核查人',\n");
