@@ -1159,21 +1159,22 @@
                 <version>3.8.1</version>
             </plugin>
             <!-- 打包 -->
+            <!-- 如果把这里的注释去掉，就可以打包成一个独立的可执行的 jar 包 ， 直接运行 java -jar xxx.jar 就可以启动项目了
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <version>2.7.14</version> <!-- 如果 spring.boot.version 版本修改，则这里也要跟着修改 -->
+                <version>2.7.14</version> &lt;!&ndash; 如果 spring.boot.version 版本修改，则这里也要跟着修改 &ndash;&gt;
                 <configuration>
                     <fork>true</fork>
                 </configuration>
                 <executions>
                     <execution>
                         <goals>
-                            <goal>repackage</goal> <!-- 将引入的 jar 打入其中 -->
+                            <goal>repackage</goal> &lt;!&ndash; 将引入的 jar 打入其中 &ndash;&gt;
                         </goals>
                     </execution>
                 </executions>
-            </plugin>
+            </plugin>-->
         </plugins>
     </build>
 
