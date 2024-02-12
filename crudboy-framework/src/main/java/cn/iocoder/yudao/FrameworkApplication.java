@@ -1,4 +1,4 @@
-package cn.iocoder.yudao.module;
+package cn.iocoder.yudao;
 
 import cn.iocoder.yudao.framework.common.pojo.CommonResult;
 import org.springframework.beans.factory.annotation.Value;
@@ -11,10 +11,8 @@ import static cn.iocoder.yudao.framework.common.exception.enums.GlobalErrorCodeC
 
 /**
  * 项目的启动类
- *
- * 如果你碰到启动的问题，请认真阅读 https://doc.iocoder.cn/quick-start/ 文章
- * 如果你碰到启动的问题，请认真阅读 https://doc.iocoder.cn/quick-start/ 文章
- * 如果你碰到启动的问题，请认真阅读 https://doc.iocoder.cn/quick-start/ 文章
+ * 这里 必须放置到  cn.iocoder.yudao 目录，否则在被其他fatjar包含的时候，会出现启动异常。 也就是 可能导致springboot不知道选择哪一个类作为启动类，即main class选择出错
+ * ： 错误: 找不到或无法加载主类 @C:\Users\xd\AppData\Local\Temp\idea_arg_file585469103
  *
  * @author 芋道源码
  */
