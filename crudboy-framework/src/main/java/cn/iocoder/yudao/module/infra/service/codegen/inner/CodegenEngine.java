@@ -71,7 +71,7 @@ public class CodegenEngine {
             .put(javaTemplatePath("controller/vo/updateReqVO"), javaModuleImplVOFilePath("UpdateReqVO"))
             .put(javaTemplatePath("controller/vo/exportReqVO"), javaModuleImplVOFilePath("ExportReqVO"))
             .put(javaTemplatePath("controller/vo/excelVO"), javaModuleImplVOFilePath("ExcelVO"))
-            .put(javaTemplatePath(methodNameAsPaths ? "controller/controller": "controller/controllerNew"), javaModuleImplControllerFilePath())
+            .put(javaTemplatePath(methodNameAsPaths ? "controller/controller": "controller/controller"), javaModuleImplControllerFilePath())
             .put(javaTemplatePath("convert/convert"),
                     javaModuleImplMainFilePath("convert/${table.businessName}/${table.className}Convert"))
             .put(javaTemplatePath("dal/do"),
