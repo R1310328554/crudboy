@@ -1,5 +1,7 @@
 package cn.iocoder.yudao.module.asc.service.botbasecfg;
 
+import com.fasterxml.uuid.UUIDGenerator;
+import com.fasterxml.uuid.impl.UUIDUtil;
 import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import org.springframework.validation.annotation.Validated;
@@ -31,6 +33,9 @@ public class BotBaseCfgServiceImpl implements BotBaseCfgService {
     public Long create(BotBaseCfgCreateReqVO createReqVO) {
         // 插入
         BotBaseCfgDO botBaseCfg = BotBaseCfgConvert.INSTANCE.convert(createReqVO);
+
+        String code = UUIDUtil.uuid("sales_2024").toString(); //
+        botBaseCfg.setCode(code);
         mapper.insert(botBaseCfg);
         // 返回
         return botBaseCfg.getId();

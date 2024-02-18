@@ -32,6 +32,9 @@ public class FileMatchCfgBaseVO {
     @Schema(description = "匹配到关键信息后发送的链接，如自己的小程序的链接或url， 多个文件以逗号分割")
     private String sendLinks;
 
+    @Schema(description = "发送后通知人工")
+    private String notifyAfterSent;
+
     @Schema(description = "备注", example = "你说的对")
     private String remark;
 

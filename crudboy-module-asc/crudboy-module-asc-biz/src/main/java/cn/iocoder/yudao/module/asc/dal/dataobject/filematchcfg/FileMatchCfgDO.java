@@ -1,5 +1,6 @@
 package cn.iocoder.yudao.module.asc.dal.dataobject.filematchcfg;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.*;
 import java.util.*;
 import java.math.BigDecimal;
@@ -47,6 +48,12 @@ public class FileMatchCfgDO extends TenantBaseDO {
      * 匹配到关键信息后发送的链接，如自己的小程序的链接或url， 多个文件以逗号分割
      */
     private String sendLinks;
+
+    /**
+     * 发送后通知人工
+     */
+    private String notifyAfterSent;
+
     /**
      * 备注
      */

@@ -58,7 +58,7 @@ public class BotBaseCfgExportReqVO {
     @Schema(description = "客户信息收集提示信息")
     private String userInfoCollector;
 
-    @Schema(description = "客户信息收集提示信息, 姓名|电话|微信, 多选一", example = "2")
+    @Schema(description = "客户信息收集提示信息, 姓名|电话|微信, 多选一", example = "电话")
     private String userInfoCollectorType;
 
     @Schema(description = "初始信息， 比如，用户开始聊天，第一句话是‘你好’之类的问候语， 那么就回复这个初始信息")

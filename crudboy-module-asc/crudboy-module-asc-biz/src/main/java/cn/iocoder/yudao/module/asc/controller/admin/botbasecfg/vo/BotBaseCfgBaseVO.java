@@ -19,16 +19,22 @@ import javax.validation.constraints.*;
 @Data
 public class BotBaseCfgBaseVO {
 
-    @Schema(description = "机器人代号", requiredMode = Schema.RequiredMode.REQUIRED)
+    @Schema(description = "机器人代号， 也就是UI上的机器人ID ", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @NotNull(message = "机器人代号不能为空")
     private String code;
 
-    @Schema(description = "机器人名称", requiredMode = Schema.RequiredMode.REQUIRED, example = "王五")
+    @Schema(description = "机器人名称", requiredMode = Schema.RequiredMode.REQUIRED, example = "销售机器人Jason")
     @NotNull(message = "机器人名称不能为空")
     private String name;
 
     @Schema(description = "头像的url、或本地文件目录")
     private String avatar;
+
+    @Schema(description = "后续主动沟通的询问方案的id")
+    private Long afterwardsReplyCfgId;
+
+    @Schema(description = "关键信息和文件链接匹配方案的id")
+    private Long fileMatchCfgId;
 
     @Schema(description = "角色设定，从 asc_bot_prompt 表选择")
     private String role;
