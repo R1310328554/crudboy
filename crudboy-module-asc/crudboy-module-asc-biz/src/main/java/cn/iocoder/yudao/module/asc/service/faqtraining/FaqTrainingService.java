@@ -67,4 +67,5 @@ public interface FaqTrainingService {
      */
     List<FaqTrainingDO> getList(FaqTrainingExportReqVO exportReqVO);
 
+    List<FaqTrainingRespVO> train(List<Long> ids);
 }

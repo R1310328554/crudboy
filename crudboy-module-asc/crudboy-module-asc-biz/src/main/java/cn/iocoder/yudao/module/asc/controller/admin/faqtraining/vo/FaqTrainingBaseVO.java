@@ -32,6 +32,9 @@ public class FaqTrainingBaseVO {
     @Schema(description = "训练的当前问题的Tokens总数量")
     private Long tokenCnt;
 
+    @Schema(description = "标签", example = "销售知识库")
+    private String tag;
+
     @Schema(description = "备注", example = "你猜")
     private String remark;
 

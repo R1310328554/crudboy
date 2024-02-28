@@ -1,5 +1,6 @@
 package cn.iocoder.yudao.module.asc.dal.dataobject.websitetraining;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.*;
 import java.util.*;
 import java.math.BigDecimal;
@@ -49,6 +50,11 @@ public class WebsiteTrainingDO extends TenantBaseDO {
      * 耗时，总共时间跨度(秒)
      */
     private Integer rateLimitDuration;
+
+    /**
+     * 所属的知识库
+     */
+    private String fileCategory;
     /**
      * 备注
      */

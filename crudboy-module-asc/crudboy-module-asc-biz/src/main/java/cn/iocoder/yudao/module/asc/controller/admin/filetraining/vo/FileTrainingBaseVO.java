@@ -27,6 +27,12 @@ public class FileTrainingBaseVO {
     @Schema(description = "训练的当前文档的Tokens总数量")
     private Long tokenCnt;
 
+    @Schema(description = "所属的知识库； 即训练的文档类型,  如 公司介绍,产品介绍,业务流程,销售技巧")
+    private String fileCategory;
+
+    @Schema(description = "标签", example = "销售知识库")
+    private String tag;
+
     @Schema(description = "备注", example = "你说的对")
     private String remark;
 

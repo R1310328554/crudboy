@@ -101,4 +101,30 @@ public class BotBaseCfgController {
         ExcelUtils.write(response, "机器人的基础配置.xls", "数据", BotBaseCfgExcelVO.class, datas);
     }
 
+
+    @PutMapping("/start")
+    @Operation(summary = "启动机器人")
+    @PreAuthorize("@ss.hasPermission('asc:bot-base-cfg:update')")
+    public CommonResult<Boolean> start(@Valid @RequestBody BotBaseCfgUpdateReqVO updateReqVO) {
+        service.update(updateReqVO);
+        return success(true);
+    }
+
+    @PutMapping("/stop")
+    @Operation(summary = "停止机器人")
+    @PreAuthorize("@ss.hasPermission('asc:bot-base-cfg:update')")
+    public CommonResult<Boolean> stop(@Valid @RequestBody BotBaseCfgUpdateReqVO updateReqVO) {
+        service.update(updateReqVO);
+        return success(true);
+    }
+
+    @PutMapping("/chat")
+    @Operation(summary = "聊天")
+    @PreAuthorize("@ss.hasPermission('asc:bot-base-cfg:update')")
+    public CommonResult<Boolean> chat(@Valid @RequestBody BotBaseCfgUpdateReqVO updateReqVO) {
+        service.update(updateReqVO);
+        return success(true);
+    }
+
+
 }

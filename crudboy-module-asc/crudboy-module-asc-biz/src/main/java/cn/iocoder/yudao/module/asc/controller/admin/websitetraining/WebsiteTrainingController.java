@@ -101,4 +101,14 @@ public class WebsiteTrainingController {
         ExcelUtils.write(response, "网站内容爬取训练.xls", "数据", WebsiteTrainingExcelVO.class, datas);
     }
 
+    @GetMapping("/train")
+    @Operation(summary = "爬取并训练网站内容")
+    @PreAuthorize("@ss.hasPermission('asc:website-training:update')")
+    public CommonResult<List<WebsiteTrainingRespVO>> train(@Valid List<Long> ids) {
+        List<WebsiteTrainingRespVO> list = service.train(ids);
+        return success(list);
+//        return success(WebsiteTrainingConvert.INSTANCE.convertList(list));
+    }
+
+
 }

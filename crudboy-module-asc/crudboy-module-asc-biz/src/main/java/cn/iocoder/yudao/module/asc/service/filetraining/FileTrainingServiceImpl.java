@@ -79,4 +79,9 @@ public class FileTrainingServiceImpl implements FileTrainingService {
         return mapper.selectList(exportReqVO);
     }
 
+    @Override
+    public List<FileTrainingRespVO> train(List<Long> ids) {
+        return null;
+    }
+
 }

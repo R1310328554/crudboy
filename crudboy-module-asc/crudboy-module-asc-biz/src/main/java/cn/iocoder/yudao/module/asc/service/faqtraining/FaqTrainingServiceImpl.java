@@ -79,4 +79,9 @@ public class FaqTrainingServiceImpl implements FaqTrainingService {
         return mapper.selectList(exportReqVO);
     }
 
+    @Override
+    public List<FaqTrainingRespVO> train(List<Long> ids) {
+        return null;
+    }
+
 }

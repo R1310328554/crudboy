@@ -79,4 +79,9 @@ public class WebsiteTrainingServiceImpl implements WebsiteTrainingService {
         return mapper.selectList(exportReqVO);
     }
 
+    @Override
+    public List<WebsiteTrainingRespVO> train(List<Long> ids) {
+        return null;
+    }
+
 }

@@ -35,7 +35,7 @@ public class FileTrainingExcelVO {
     private String fileName;
 
     @ExcelProperty(value = "训练状态， 如训练失败， 训练完成", converter = DictConvert.class)
-    @DictFormat("yj_tmp") // TODO 代码优化：建议设置到对应的 XXXDictTypeConstants 枚举类中
+    @DictFormat("yj_training_status") // TODO 代码优化：建议设置到对应的 XXXDictTypeConstants 枚举类中
     private String trainingStatus;
 
     @ExcelProperty("训练的当前文档的Tokens总数量")

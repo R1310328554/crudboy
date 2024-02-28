@@ -67,4 +67,5 @@ public interface WebsiteTrainingService {
      */
     List<WebsiteTrainingDO> getList(WebsiteTrainingExportReqVO exportReqVO);
 
+    List<WebsiteTrainingRespVO> train(List<Long> ids);
 }

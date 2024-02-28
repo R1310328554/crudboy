@@ -1,5 +1,6 @@
 package cn.iocoder.yudao.module.asc.dal.dataobject.filetraining;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.*;
 import java.util.*;
 import java.math.BigDecimal;
@@ -49,6 +50,12 @@ public class FileTrainingDO extends TenantBaseDO {
      * 训练的当前文档的Tokens总数量
      */
     private Long tokenCnt;
+
+    /**
+     * 所属的知识库
+     */
+    private String fileCategory;
+
     /**
      * 备注
      */

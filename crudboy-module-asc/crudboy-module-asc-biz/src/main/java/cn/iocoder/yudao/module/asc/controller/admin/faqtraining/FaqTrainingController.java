@@ -1,5 +1,6 @@
 package cn.iocoder.yudao.module.asc.controller.admin.faqtraining;
 
+import cn.iocoder.yudao.module.asc.controller.admin.filetraining.vo.FileTrainingRespVO;
 import org.springframework.web.bind.annotation.*;
 import javax.annotation.Resource;
 import org.springframework.validation.annotation.Validated;
@@ -99,6 +100,16 @@ public class FaqTrainingController {
         // 导出 Excel
         List<FaqTrainingExcelVO> datas = FaqTrainingConvert.INSTANCE.convertList02(list);
         ExcelUtils.write(response, "百问百答训练.xls", "数据", FaqTrainingExcelVO.class, datas);
+    }
+
+
+    @GetMapping("/train")
+    @Operation(summary = "解析并训练文档")
+    @PreAuthorize("@ss.hasPermission('asc:faq-training:update')")
+    public CommonResult<List<FaqTrainingRespVO>> train(@Valid List<Long> ids) {
+        List<FaqTrainingRespVO> list = service.train(ids);
+        return success(list);
+//        return success(WebsiteTrainingConvert.INSTANCE.convertList(list));
     }
 
 }
