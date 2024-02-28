@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 import java.time.LocalDate;
 
 
-@Schema(description = "管理后台 - GPT 专用的基础的配置更新 Request VO")
+@Schema(description = "ASC接口 - GPT 专用的基础的配置更新 Request VO")
 @Data
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)

@@ -30,7 +30,7 @@ import cn.iocoder.yudao.module.asc.dal.dataobject.thirdpartycfg.ThirdPartyCfgDO;
 import cn.iocoder.yudao.module.asc.convert.thirdpartycfg.ThirdPartyCfgConvert;
 import cn.iocoder.yudao.module.asc.service.thirdpartycfg.ThirdPartyCfgService;
 
-@Tag(name = "管理后台 - 终端平台即第三方平台配置")
+@Tag(name = "ASC接口 - 终端平台即第三方平台配置")
 @RestController
 @RequestMapping("/asc/third-party-cfg")
 @Validated

@@ -31,7 +31,7 @@ import cn.iocoder.yudao.module.asc.dal.dataobject.faqtraining.FaqTrainingDO;
 import cn.iocoder.yudao.module.asc.convert.faqtraining.FaqTrainingConvert;
 import cn.iocoder.yudao.module.asc.service.faqtraining.FaqTrainingService;
 
-@Tag(name = "管理后台 - 百问百答训练")
+@Tag(name = "ASC接口 - 百问百答训练")
 @RestController
 @RequestMapping("/asc/faq-training")
 @Validated

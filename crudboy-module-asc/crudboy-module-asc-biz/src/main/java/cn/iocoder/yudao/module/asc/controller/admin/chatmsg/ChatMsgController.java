@@ -30,7 +30,7 @@ import cn.iocoder.yudao.module.asc.dal.dataobject.chatmsg.ChatMsgDO;
 import cn.iocoder.yudao.module.asc.convert.chatmsg.ChatMsgConvert;
 import cn.iocoder.yudao.module.asc.service.chatmsg.ChatMsgService;
 
-@Tag(name = "管理后台 - 单个聊天消息")
+@Tag(name = "ASC接口 - 单个聊天消息")
 @RestController
 @RequestMapping("/asc/chat-msg")
 @Validated

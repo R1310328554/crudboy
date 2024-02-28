@@ -8,7 +8,7 @@ import java.time.LocalDate;
 
 import java.time.LocalDateTime;
 
-@Schema(description = "管理后台 - 租户 Response VO")
+@Schema(description = "ASC接口 - 租户 Response VO")
 @Data
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)

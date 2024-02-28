@@ -30,7 +30,7 @@ import cn.iocoder.yudao.module.asc.dal.dataobject.enduser.EndUserDO;
 import cn.iocoder.yudao.module.asc.convert.enduser.EndUserConvert;
 import cn.iocoder.yudao.module.asc.service.enduser.EndUserService;
 
-@Tag(name = "管理后台 - 终端用户")
+@Tag(name = "ASC接口 - 终端用户")
 @RestController
 @RequestMapping("/asc/end-user")
 @Validated

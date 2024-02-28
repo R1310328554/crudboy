@@ -30,7 +30,7 @@ import cn.iocoder.yudao.module.asc.dal.dataobject.filematchcfg.FileMatchCfgDO;
 import cn.iocoder.yudao.module.asc.convert.filematchcfg.FileMatchCfgConvert;
 import cn.iocoder.yudao.module.asc.service.filematchcfg.FileMatchCfgService;
 
-@Tag(name = "管理后台 - 关键信息和文件链接匹配")
+@Tag(name = "ASC接口 - 关键信息和文件链接匹配")
 @RestController
 @RequestMapping("/asc/file-match-cfg")
 @Validated

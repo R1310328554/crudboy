@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 import java.time.LocalDate;
 
 
-@Schema(description = "管理后台 - WhatsApp 平台配置更新 Request VO")
+@Schema(description = "ASC接口 - WhatsApp 平台配置更新 Request VO")
 @Data
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)

@@ -30,7 +30,7 @@ import cn.iocoder.yudao.module.asc.dal.dataobject.endusercfg.EndUserCfgDO;
 import cn.iocoder.yudao.module.asc.convert.endusercfg.EndUserCfgConvert;
 import cn.iocoder.yudao.module.asc.service.endusercfg.EndUserCfgService;
 
-@Tag(name = "管理后台 - 终端用户配置")
+@Tag(name = "ASC接口 - 终端用户配置")
 @RestController
 @RequestMapping("/asc/end-user-cfg")
 @Validated

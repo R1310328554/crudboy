@@ -8,7 +8,7 @@ import cn.iocoder.yudao.framework.common.pojo.PageParam;
 import java.time.LocalDateTime;
 import java.time.LocalDate;
 
-@Schema(description = "管理后台 - GPT 专用的基础的配置 Excel 导出 Request VO，参数和 GptCfgPageReqVO 是一致的")
+@Schema(description = "ASC接口 - GPT 专用的基础的配置 Excel 导出 Request VO，参数和 GptCfgPageReqVO 是一致的")
 @Data
 public class GptCfgExportReqVO {
 

@@ -12,7 +12,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import static cn.iocoder.yudao.framework.common.util.date.DateUtils.FORMAT_YEAR_MONTH_DAY_HOUR_MINUTE_SECOND;
 
-@Schema(description = "管理后台 - 终端用户 Excel 导出 Request VO，参数和 EndUserPageReqVO 是一致的")
+@Schema(description = "ASC接口 - 终端用户 Excel 导出 Request VO，参数和 EndUserPageReqVO 是一致的")
 @Data
 public class EndUserExportReqVO {
 

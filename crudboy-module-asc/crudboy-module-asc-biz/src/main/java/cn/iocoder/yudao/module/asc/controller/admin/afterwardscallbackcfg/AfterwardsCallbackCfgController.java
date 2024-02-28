@@ -30,7 +30,7 @@ import cn.iocoder.yudao.module.asc.dal.dataobject.afterwardscallbackcfg.Afterwar
 import cn.iocoder.yudao.module.asc.convert.afterwardscallbackcfg.AfterwardsCallbackCfgConvert;
 import cn.iocoder.yudao.module.asc.service.afterwardscallbackcfg.AfterwardsCallbackCfgService;
 
-@Tag(name = "管理后台 - 后续主动沟通的询问方案")
+@Tag(name = "ASC接口 - 后续主动沟通的询问方案")
 @RestController
 @RequestMapping("/asc/afterwards-callback-cfg")
 @Validated

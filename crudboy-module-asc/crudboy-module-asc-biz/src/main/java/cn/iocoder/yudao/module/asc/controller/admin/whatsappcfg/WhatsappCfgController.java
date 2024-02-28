@@ -30,7 +30,7 @@ import cn.iocoder.yudao.module.asc.dal.dataobject.whatsappcfg.WhatsappCfgDO;
 import cn.iocoder.yudao.module.asc.convert.whatsappcfg.WhatsappCfgConvert;
 import cn.iocoder.yudao.module.asc.service.whatsappcfg.WhatsappCfgService;
 
-@Tag(name = "管理后台 - WhatsApp 平台配置")
+@Tag(name = "ASC接口 - WhatsApp 平台配置")
 @RestController
 @RequestMapping("/asc/whatsapp-cfg")
 @Validated

@@ -8,7 +8,7 @@ import java.time.LocalDate;
 
 import java.time.LocalDateTime;
 
-@Schema(description = "管理后台 - 预设提示词 Response VO")
+@Schema(description = "ASC接口 - 预设提示词 Response VO")
 @Data
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)

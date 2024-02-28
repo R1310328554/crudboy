@@ -30,7 +30,7 @@ import cn.iocoder.yudao.module.asc.dal.dataobject.gptcfg.GptCfgDO;
 import cn.iocoder.yudao.module.asc.convert.gptcfg.GptCfgConvert;
 import cn.iocoder.yudao.module.asc.service.gptcfg.GptCfgService;
 
-@Tag(name = "管理后台 - GPT 专用的基础的配置")
+@Tag(name = "ASC接口 - GPT 专用的基础的配置")
 @RestController
 @RequestMapping("/asc/gpt-cfg")
 @Validated

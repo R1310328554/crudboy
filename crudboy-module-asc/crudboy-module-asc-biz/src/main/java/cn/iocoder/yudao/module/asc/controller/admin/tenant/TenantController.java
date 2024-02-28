@@ -30,7 +30,7 @@
 //import cn.iocoder.yudao.module.asc.convert.tenant.TenantConvert;
 //import cn.iocoder.yudao.module.asc.service.tenant.TenantService;
 //
-//@Tag(name = "管理后台 - 租户")
+//@Tag(name = "ASC接口 - 租户")
 //@RestController
 //@RequestMapping("/asc/tenant")
 //@Validated

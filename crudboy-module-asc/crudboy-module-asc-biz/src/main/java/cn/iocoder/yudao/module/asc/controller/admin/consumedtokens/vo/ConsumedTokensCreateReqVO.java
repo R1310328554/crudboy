@@ -6,7 +6,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import javax.validation.constraints.*;
 import java.math.BigDecimal;
 
-@Schema(description = "管理后台 - 租户的token消耗情况创建 Request VO")
+@Schema(description = "ASC接口 - 租户的token消耗情况创建 Request VO")
 @Data
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)

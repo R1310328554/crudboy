@@ -30,7 +30,7 @@ import cn.iocoder.yudao.module.asc.dal.dataobject.consumedtokens.ConsumedTokensD
 import cn.iocoder.yudao.module.asc.convert.consumedtokens.ConsumedTokensConvert;
 import cn.iocoder.yudao.module.asc.service.consumedtokens.ConsumedTokensService;
 
-@Tag(name = "管理后台 - 租户的token消耗情况")
+@Tag(name = "ASC接口 - 租户的token消耗情况")
 @RestController
 @RequestMapping("/asc/consumed-tokens")
 @Validated

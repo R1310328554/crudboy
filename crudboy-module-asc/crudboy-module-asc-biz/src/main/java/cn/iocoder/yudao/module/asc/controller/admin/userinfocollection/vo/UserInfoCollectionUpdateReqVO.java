@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 import java.time.LocalDate;
 
 
-@Schema(description = "管理后台 - 客户信息收集更新 Request VO")
+@Schema(description = "ASC接口 - 客户信息收集更新 Request VO")
 @Data
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)

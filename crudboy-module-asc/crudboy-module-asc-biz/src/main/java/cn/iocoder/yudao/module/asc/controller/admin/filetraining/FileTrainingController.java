@@ -31,7 +31,7 @@ import cn.iocoder.yudao.module.asc.dal.dataobject.filetraining.FileTrainingDO;
 import cn.iocoder.yudao.module.asc.convert.filetraining.FileTrainingConvert;
 import cn.iocoder.yudao.module.asc.service.filetraining.FileTrainingService;
 
-@Tag(name = "管理后台 - 文档训练")
+@Tag(name = "ASC接口 - 文档训练")
 @RestController
 @RequestMapping("/asc/file-training")
 @Validated

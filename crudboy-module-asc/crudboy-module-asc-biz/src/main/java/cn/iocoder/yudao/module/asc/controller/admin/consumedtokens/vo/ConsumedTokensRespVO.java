@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 import java.time.LocalDate;
 
 
-@Schema(description = "管理后台 - 租户的token消耗情况 Response VO")
+@Schema(description = "ASC接口 - 租户的token消耗情况 Response VO")
 @Data
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)

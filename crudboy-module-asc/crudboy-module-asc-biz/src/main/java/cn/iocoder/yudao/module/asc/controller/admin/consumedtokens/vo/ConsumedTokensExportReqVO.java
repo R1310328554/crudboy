@@ -8,7 +8,7 @@ import cn.iocoder.yudao.framework.common.pojo.PageParam;
 import java.time.LocalDateTime;
 import java.time.LocalDate;
 
-@Schema(description = "管理后台 - 租户的token消耗情况 Excel 导出 Request VO，参数和 ConsumedTokensPageReqVO 是一致的")
+@Schema(description = "ASC接口 - 租户的token消耗情况 Excel 导出 Request VO，参数和 ConsumedTokensPageReqVO 是一致的")
 @Data
 public class ConsumedTokensExportReqVO {
 

@@ -30,7 +30,7 @@ import cn.iocoder.yudao.module.asc.dal.dataobject.userinfocollection.UserInfoCol
 import cn.iocoder.yudao.module.asc.convert.userinfocollection.UserInfoCollectionConvert;
 import cn.iocoder.yudao.module.asc.service.userinfocollection.UserInfoCollectionService;
 
-@Tag(name = "管理后台 - 客户信息收集")
+@Tag(name = "ASC接口 - 客户信息收集")
 @RestController
 @RequestMapping("/asc/user-info-collection")
 @Validated

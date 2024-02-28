@@ -30,7 +30,7 @@ import cn.iocoder.yudao.module.asc.dal.dataobject.botprompt.BotPromptDO;
 import cn.iocoder.yudao.module.asc.convert.botprompt.BotPromptConvert;
 import cn.iocoder.yudao.module.asc.service.botprompt.BotPromptService;
 
-@Tag(name = "管理后台 - 预设提示词")
+@Tag(name = "ASC接口 - 预设提示词")
 @RestController
 @RequestMapping("/asc/bot-prompt")
 @Validated

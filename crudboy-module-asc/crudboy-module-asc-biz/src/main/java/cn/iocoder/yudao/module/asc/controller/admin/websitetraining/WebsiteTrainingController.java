@@ -30,7 +30,7 @@ import cn.iocoder.yudao.module.asc.dal.dataobject.websitetraining.WebsiteTrainin
 import cn.iocoder.yudao.module.asc.convert.websitetraining.WebsiteTrainingConvert;
 import cn.iocoder.yudao.module.asc.service.websitetraining.WebsiteTrainingService;
 
-@Tag(name = "管理后台 - 网站内容爬取训练")
+@Tag(name = "ASC接口 - 网站内容爬取训练")
 @RestController
 @RequestMapping("/asc/website-training")
 @Validated

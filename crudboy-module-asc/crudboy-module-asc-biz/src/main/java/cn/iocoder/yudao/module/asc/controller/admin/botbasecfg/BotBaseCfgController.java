@@ -30,7 +30,7 @@ import cn.iocoder.yudao.module.asc.dal.dataobject.botbasecfg.BotBaseCfgDO;
 import cn.iocoder.yudao.module.asc.convert.botbasecfg.BotBaseCfgConvert;
 import cn.iocoder.yudao.module.asc.service.botbasecfg.BotBaseCfgService;
 
-@Tag(name = "管理后台 - 机器人的基础配置")
+@Tag(name = "ASC接口 - 机器人的基础配置")
 @RestController
 @RequestMapping("/asc/bot-base-cfg")
 @Validated

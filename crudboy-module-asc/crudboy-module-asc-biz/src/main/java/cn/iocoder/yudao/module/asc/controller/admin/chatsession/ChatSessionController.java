@@ -30,7 +30,7 @@ import cn.iocoder.yudao.module.asc.dal.dataobject.chatsession.ChatSessionDO;
 import cn.iocoder.yudao.module.asc.convert.chatsession.ChatSessionConvert;
 import cn.iocoder.yudao.module.asc.service.chatsession.ChatSessionService;
 
-@Tag(name = "管理后台 - 聊天的会话")
+@Tag(name = "ASC接口 - 聊天的会话")
 @RestController
 @RequestMapping("/asc/chat-session")
 @Validated
