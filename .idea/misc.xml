@@ -9,6 +9,9 @@
         <option value="$PROJECT_DIR$/crudboy-framework/pom.xml" />
         <option value="$PROJECT_DIR$/crudboy-emall/pom.xml" />
         <option value="$PROJECT_DIR$/crudboy-ssodemo/pom.xml" />
+        <option value="$PROJECT_DIR$/crudboy-module-asc/pom.xml" />
+        <option value="$PROJECT_DIR$/crudboy-module-asc/crudboy-module-asc-biz/pom.xml" />
+        <option value="$PROJECT_DIR$/crudboy-server/pom.xml" />
       </list>
     </option>
   </component>

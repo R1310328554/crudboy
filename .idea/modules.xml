@@ -4,6 +4,10 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/crudboy-emall/crudboy-emall.iml" filepath="$PROJECT_DIR$/crudboy-emall/crudboy-emall.iml" />
       <module fileurl="file://$PROJECT_DIR$/crudboy-framework/crudboy-framework.iml" filepath="$PROJECT_DIR$/crudboy-framework/crudboy-framework.iml" />
+      <module fileurl="file://$PROJECT_DIR$/crudboy-module-asc/crudboy-module-asc.iml" filepath="$PROJECT_DIR$/crudboy-module-asc/crudboy-module-asc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/crudboy-module-asc/crudboy-module-asc-api/crudboy-module-asc-api.iml" filepath="$PROJECT_DIR$/crudboy-module-asc/crudboy-module-asc-api/crudboy-module-asc-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/crudboy-module-asc/crudboy-module-asc-biz/crudboy-module-asc-biz.iml" filepath="$PROJECT_DIR$/crudboy-module-asc/crudboy-module-asc-biz/crudboy-module-asc-biz.iml" />
+      <module fileurl="file://$PROJECT_DIR$/crudboy-server/crudboy-server.iml" filepath="$PROJECT_DIR$/crudboy-server/crudboy-server.iml" />
       <module fileurl="file://$PROJECT_DIR$/crudboy-ssodemo/crudboy-ssodemo.iml" filepath="$PROJECT_DIR$/crudboy-ssodemo/crudboy-ssodemo.iml" />
     </modules>
   </component>

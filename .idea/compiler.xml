@@ -11,6 +11,20 @@
         <module name="crudboy-ssodemo" />
         <module name="crudboy-framework" />
         <module name="crudboy-emall" />
+        <module name="crudboy-server" />
+      </profile>
+      <profile name="Annotation profile for crudboy-module-asc" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-configuration-processor/2.7.14/spring-boot-configuration-processor-2.7.14.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.28/lombok-1.18.28.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/mapstruct/mapstruct-processor/1.5.5.Final/mapstruct-processor-1.5.5.Final.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/mapstruct/mapstruct/1.5.5.Final/mapstruct-1.5.5.Final.jar" />
+        </processorPath>
+        <module name="crudboy-module-asc-biz" />
+        <module name="crudboy-module-asc-api" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -19,7 +33,16 @@
       <module name="crudboy (2)" target="1.8" />
       <module name="crudboy-emall" target="1.8" />
       <module name="crudboy-framework" target="1.8" />
+      <module name="crudboy-framework (1)" target="1.8" />
+      <module name="crudboy-module-asc" target="1.8" />
+      <module name="crudboy-module-asc-api" target="1.8" />
+      <module name="crudboy-module-asc-biz" target="1.8" />
+      <module name="crudboy-module-yjgl" target="1.8" />
+      <module name="crudboy-server" target="1.8" />
       <module name="crudboy-ssodemo" target="1.8" />
+      <module name="yudao-module-yjgl" target="1.8" />
+      <module name="yudao-module-yjgl-api" target="1.8" />
+      <module name="yudao-module-yjgl-biz" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
