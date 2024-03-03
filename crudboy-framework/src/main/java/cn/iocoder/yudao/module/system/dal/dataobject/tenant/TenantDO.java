@@ -79,4 +79,58 @@ public class TenantDO extends BaseDO {
      */
     private Integer accountCount;
 
+
+    /**
+     * 问答token总数上限
+     */
+    private Long maxQuestionTokenCnt;
+    /**
+     * 可以发出的问题的最大数量
+     */
+    private Long maxQuestionCnt;
+    /**
+     * 文档token总数上限
+     */
+    private Long maxFileTokenCnt;
+    /**
+     * 可以上传的最大的文件的个数
+     */
+    private Long maxFileCnt;
+    /**
+     * 训练的文档类型, 多个以英文逗号分割
+     */
+    private String fileCategorys;
+    /**
+     * 支持的、可以进行训练的文档格式, 多个以英文逗号分割，.pdf  .doc  .txt
+     */
+    private String fileTypes;
+    /**
+     * 训练网站可以使用的token总数上限
+     */
+    private Long maxWebsiteTokenCnt;
+    /**
+     * 训练的url格式, 多个以英文逗号分割，.com .gov .cn  .top
+     */
+    private String websiteTypes;
+    /**
+     * 可以训练问题的Tokens总数量
+     */
+    private Long maxFaqTokenCnt;
+    /**
+     * 可以设置FAQ的问题的最大数量
+     */
+    private Long maxFaqCnt;
+    /**
+     * C端用户数上限
+     */
+    private Long maxEndUser;
+    /**
+     * 其他
+     */
+    private Long other;
+    /**
+     * 备注
+     */
+    private String remark;
+
 }
