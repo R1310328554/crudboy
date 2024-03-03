@@ -257,6 +257,8 @@ See tika-parsers/pom.xml for the correct version.
                     System.out.println("result = " + result);
 
                     fileTraining.setTrainingStatus("训练完成");
+                    fileTraining.setFileName(result);
+                    fileTraining.setFileSize(Math.toIntExact(length));
                     fileTraining.setRemark(result);
                     mapper.updateById(fileTraining);
 
@@ -287,6 +289,10 @@ See tika-parsers/pom.xml for the correct version.
         }
         FileTrainingRespVO ret = new FileTrainingRespVO();
         ret.setTrainingStatus("训练完成");
+        ret.setFileName(fileTraining.getFileName());
+        ret.setId(fileTraining.getId());
+        ret.setFileSize(fileTraining.getFileSize());
+        ret.setFileId(fileTraining.getFileId());
         ret.setRemark(result);
         ret.setTokenCnt(Long.valueOf(length));
         return ret;
