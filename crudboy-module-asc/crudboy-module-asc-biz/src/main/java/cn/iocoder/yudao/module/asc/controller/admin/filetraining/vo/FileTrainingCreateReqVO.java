@@ -12,4 +12,10 @@ import java.math.BigDecimal;
 @ToString(callSuper = true)
 public class FileTrainingCreateReqVO extends FileTrainingBaseVO {
 
+    @Schema(description = "训练状态， 如训练失败， 训练完成", example = "1")
+    private String trainingStatus;
+
+    @Schema(description = "训练的当前文档的Tokens总数量")
+    private Long tokenCnt;
+
 }

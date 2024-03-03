@@ -24,7 +24,7 @@ import cn.iocoder.yudao.framework.mybatis.core.dataobject.BaseDO;
 //@Builder
 //@NoArgsConstructor
 //@AllArgsConstructor
-public class TenantDO extends TenantBaseDO {
+public class TenantAscDO extends TenantBaseDO {
 
     /**
      * 主键，即租户id

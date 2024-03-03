@@ -18,14 +18,11 @@ import javax.validation.constraints.*;
 @Data
 public class FileTrainingBaseVO {
 
+    @Schema(description = "文件id、存储路径或url", example = "123")
+    private String fileId;
+
     @Schema(description = "文件名，冗余", example = "李四")
     private String fileName;
-
-    @Schema(description = "训练状态， 如训练失败， 训练完成", example = "1")
-    private String trainingStatus;
-
-    @Schema(description = "训练的当前文档的Tokens总数量")
-    private Long tokenCnt;
 
     @Schema(description = "所属的知识库； 即训练的文档类型,  如 公司介绍,产品介绍,业务流程,销售技巧")
     private String fileCategory;

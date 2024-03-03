@@ -19,4 +19,9 @@ public class FileTrainingUpdateReqVO extends FileTrainingBaseVO {
     @NotNull(message = "主键不能为空")
     private Long id;
 
+    @Schema(description = "训练状态， 如训练失败， 训练完成", example = "1")
+    private String trainingStatus;
+
+    @Schema(description = "训练的当前文档的Tokens总数量")
+    private Long tokenCnt;
 }

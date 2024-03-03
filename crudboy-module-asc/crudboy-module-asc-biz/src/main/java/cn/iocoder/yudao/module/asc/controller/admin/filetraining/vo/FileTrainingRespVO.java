@@ -14,6 +14,13 @@ import java.time.LocalDateTime;
 @ToString(callSuper = true)
 public class FileTrainingRespVO extends FileTrainingBaseVO {
 
+    @Schema(description = "训练状态， 如训练失败， 训练完成", example = "1")
+    private String trainingStatus;
+
+    @Schema(description = "训练的当前文档的Tokens总数量")
+    private Long tokenCnt;
+
+
     @Schema(description = "主键", requiredMode = Schema.RequiredMode.REQUIRED, example = "1163")
     private Long id;
 

@@ -20,7 +20,7 @@ import javax.validation.constraints.*;
 public class BotBaseCfgBaseVO {
 
     @Schema(description = "机器人代号， 也就是UI上的机器人ID ", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-    @NotNull(message = "机器人代号不能为空")
+//    @NotNull(message = "机器人代号不能为空")
     private String code;
 
     @Schema(description = "机器人名称", requiredMode = Schema.RequiredMode.REQUIRED, example = "销售机器人Jason")

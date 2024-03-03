@@ -27,6 +27,10 @@ public class WhatsappCfgBaseVO {
     @Schema(description = "Wechat/Wechatcompany/WhatsApp", example = "1")
     private String thirdPartyType;
 
+    @Schema(description = "在第三方平台上的id，比如微信的openid、unionid WhatsApp_id 等等", requiredMode = Schema.RequiredMode.REQUIRED)
+    @NotNull(message = "在第三方平台上的id不能为空")
+    private String thirdPartyId;
+
     @Schema(description = "key")
     private String key;
 

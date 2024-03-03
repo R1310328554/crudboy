@@ -9,6 +9,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import com.baomidou.mybatisplus.annotation.*;
 import cn.iocoder.yudao.framework.mybatis.core.dataobject.BaseDO;
+import org.apache.ibatis.type.JdbcType;
 
 /**
  * 单个聊天消息 DO
@@ -18,12 +19,12 @@ import cn.iocoder.yudao.framework.mybatis.core.dataobject.BaseDO;
 @TableName("asc_chat_msg")
 @KeySequence("asc_chat_msg_seq") // 用于 Oracle、PostgreSQL、Kingbase、DB2、H2 数据库的主键自增。如果是 MySQL 等数据库，可不写。
 @Data
-@EqualsAndHashCode(callSuper = true)
+//@EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ChatMsgDO extends TenantBaseDO {
+public class ChatMsgDO {
 
     /**
      * 主键
@@ -73,4 +74,40 @@ public class ChatMsgDO extends TenantBaseDO {
      */
     private String message;
 
+
+    /**
+     * 创建时间
+     */
+    @TableField(fill = FieldFill.INSERT)
+    private LocalDateTime createTime;
+
+    /*    *//**
+     * 最后更新时间
+     *//*
+    @TableField(fill = FieldFill.INSERT_UPDATE)
+    private LocalDateTime updateTime;
+    *//**
+     * 创建者，目前使用 SysUser 的 id 编号
+     *
+     * 使用 String 类型的原因是，未来可能会存在非数值的情况，留好拓展性。
+     *//*
+    @TableField(fill = FieldFill.INSERT, jdbcType = JdbcType.VARCHAR)
+    private String creator;
+    *//**
+     * 更新者，目前使用 SysUser 的 id 编号
+     *
+     * 使用 String 类型的原因是，未来可能会存在非数值的情况，留好拓展性。
+     *//*
+    @TableField(fill = FieldFill.INSERT_UPDATE, jdbcType = JdbcType.VARCHAR)
+    private String updater;*/
+    /**
+     * 是否删除
+     */
+    @TableLogic
+    private Boolean deleted;
+
+    /**
+     * 多租户编号
+     */
+    private Long tenantId;
 }

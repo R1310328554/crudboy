@@ -2,6 +2,7 @@ package cn.iocoder.yudao.module.asc.service.botbasecfg;
 
 import com.fasterxml.uuid.UUIDGenerator;
 import com.fasterxml.uuid.impl.UUIDUtil;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import org.springframework.validation.annotation.Validated;
@@ -34,8 +35,15 @@ public class BotBaseCfgServiceImpl implements BotBaseCfgService {
         // 插入
         BotBaseCfgDO botBaseCfg = BotBaseCfgConvert.INSTANCE.convert(createReqVO);
 
-        String code = UUIDUtil.uuid("sales_2024").toString(); //
-        botBaseCfg.setCode(code);
+        String code1 = botBaseCfg.getCode();
+        if (code1 == null) {
+            String post = botBaseCfg.getPost();
+            if (StringUtils.isEmpty(post)) {
+                post = "Bot_";
+            }
+            String code = post + UUID.randomUUID().toString(); // java.lang.NumberFormatException: UUID has to be represented by the standard 36-char representation
+            botBaseCfg.setCode(code);
+        }
         mapper.insert(botBaseCfg);
         // 返回
         return botBaseCfg.getId();

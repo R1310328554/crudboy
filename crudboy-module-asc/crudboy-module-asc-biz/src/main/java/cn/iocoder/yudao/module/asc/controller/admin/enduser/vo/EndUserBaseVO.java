@@ -33,6 +33,10 @@ public class EndUserBaseVO {
     @Schema(description = "第三方平台类型，即用户使用的微信还是WhatsApp..", example = "2")
     private String thirdPartyType;
 
+    @Schema(description = "在第三方平台上的id，比如微信的openid、unionid WhatsApp_id 等等", requiredMode = Schema.RequiredMode.REQUIRED)
+    @NotNull(message = "在第三方平台上的id不能为空")
+    private String thirdPartyId;
+
     @Schema(description = "备注", example = "你猜")
     private String remark;
 

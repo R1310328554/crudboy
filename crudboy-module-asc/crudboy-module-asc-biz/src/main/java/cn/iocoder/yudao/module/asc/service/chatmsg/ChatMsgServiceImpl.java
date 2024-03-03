@@ -4,6 +4,7 @@ import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import org.springframework.validation.annotation.Validated;
 
+import java.time.LocalDateTime;
 import java.util.*;
 import cn.iocoder.yudao.module.asc.controller.admin.chatmsg.vo.*;
 import cn.iocoder.yudao.module.asc.dal.dataobject.chatmsg.ChatMsgDO;
@@ -31,6 +32,7 @@ public class ChatMsgServiceImpl implements ChatMsgService {
     public Long create(ChatMsgCreateReqVO createReqVO) {
         // 插入
         ChatMsgDO chatMsg = ChatMsgConvert.INSTANCE.convert(createReqVO);
+        chatMsg.setCreateTime(LocalDateTime.now());
         mapper.insert(chatMsg);
         // 返回
         return chatMsg.getId();
