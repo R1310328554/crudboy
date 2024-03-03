@@ -21,6 +21,7 @@ public class ChatMsgBaseVO {
     @NotNull(message = "方向，即问还是答，分别是：1,2不能为空")
     private Boolean direction;
 
+
     @Schema(description = "聊天的会话id", requiredMode = Schema.RequiredMode.REQUIRED)
     @NotNull(message = "聊天的会话id不能为空")
     private Long chatId;
