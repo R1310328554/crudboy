@@ -36,6 +36,13 @@ public class FileTrainingDO extends TenantBaseDO {
      * 文件名，冗余
      */
     private String fileName;
+
+
+    /**
+     * 文件大小，冗余
+     */
+    private Integer fileSize;
+
     /**
      * 文件id、存储路径或url
      */

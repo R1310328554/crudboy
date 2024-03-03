@@ -39,6 +39,12 @@ public class FaqTrainingDO extends TenantBaseDO {
      * 答案
      */
     private String answer;
+
+    /**
+     * 所属的知识库
+     */
+    private String fileCategory;
+
     /**
      * 训练状态， 如训练失败， 训练完成
      *

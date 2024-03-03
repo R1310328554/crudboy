@@ -24,6 +24,9 @@ public class FileTrainingBaseVO {
     @Schema(description = "文件名，冗余", example = "李四")
     private String fileName;
 
+    @Schema(description = "文件大小，冗余", example = "李四")
+    private Integer fileSize;
+
     @Schema(description = "所属的知识库； 即训练的文档类型,  如 公司介绍,产品介绍,业务流程,销售技巧")
     private String fileCategory;
 

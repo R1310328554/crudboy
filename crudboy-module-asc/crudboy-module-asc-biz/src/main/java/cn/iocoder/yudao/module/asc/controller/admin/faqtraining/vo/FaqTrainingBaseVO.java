@@ -26,6 +26,9 @@ public class FaqTrainingBaseVO {
     @NotNull(message = "答案不能为空")
     private String answer;
 
+    @Schema(description = "所属的知识库； 即训练的文档类型,  如 公司介绍,产品介绍,业务流程,销售技巧")
+    private String fileCategory;
+
     @Schema(description = "训练状态， 如训练失败， 训练完成", example = "1")
     private String trainingStatus;
 
