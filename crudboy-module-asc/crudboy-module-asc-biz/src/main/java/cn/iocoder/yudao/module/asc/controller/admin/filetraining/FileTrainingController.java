@@ -105,7 +105,8 @@ public class FileTrainingController {
     @GetMapping("/train")
     @Operation(summary = "解析并训练文档")
     @PreAuthorize("@ss.hasPermission('asc:file-training:update')")
-    public CommonResult<List<FileTrainingRespVO>> train(@Valid List<Long> ids) {
+//    public CommonResult<List<FileTrainingRespVO>> train(@Valid List<Long> ids) {
+    public CommonResult<List<FileTrainingRespVO>> train(@RequestParam("ids") Collection<Long> ids) {
         List<FileTrainingRespVO> list = service.train(ids);
         return success(list);
 //        return success(WebsiteTrainingConvert.INSTANCE.convertList(list));

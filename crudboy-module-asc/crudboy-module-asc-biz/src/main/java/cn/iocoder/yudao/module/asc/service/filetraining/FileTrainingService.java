@@ -67,7 +67,7 @@ public interface FileTrainingService {
      */
     List<FileTrainingDO> getList(FileTrainingExportReqVO exportReqVO);
 
-    List<FileTrainingRespVO> train(List<Long> ids);
+    List<FileTrainingRespVO> train(Collection<Long> ids);
 
     String createKnowledgeBase(String knowledgeBaseName);
 }
