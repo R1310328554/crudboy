@@ -10,11 +10,17 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import javax.validation.constraints.NotNull;
+
 import static cn.iocoder.yudao.framework.common.util.date.DateUtils.FORMAT_YEAR_MONTH_DAY_HOUR_MINUTE_SECOND;
 
 @Schema(description = "ASC接口 - 单个聊天消息 Excel 导出 Request VO，参数和 ChatMsgPageReqVO 是一致的")
 @Data
 public class ChatMsgExportReqVO {
+
+    @Schema(description = "聊天的会话id", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @NotNull(message = "聊天的会话id不能为空")
+    private Long chatId;
 
     @Schema(description = "方向，即问还是答，分别是：1,2")
     private Boolean direction;
@@ -33,6 +39,9 @@ public class ChatMsgExportReqVO {
 
     @Schema(description = "序号，即当前会话中的第几条消息（包括提问的回复的）")
     private Integer sequence;
+
+    @Schema(description = "到xx序号结束 ")
+    private Integer sequence2;
 
     @Schema(description = "消息内容，即问题或回答，")
     private String message;

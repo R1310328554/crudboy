@@ -44,24 +44,39 @@ public class BotBaseCfgBaseVO {
     private String model;
 
     @Schema(description = "表达风格，即 回复是自由度")
+    @Max(1)
+    @Min(0)
     private BigDecimal temperature;
 
     @Schema(description = "上下文记忆量，超过则舍弃")
+    @Max(1000000)
+    @Min(0)
     private Integer maxCtxLen;
 
-    @Schema(description = "岗位")
+    @Schema(description = "岗位id")
+    private String postId;
+
+    @Schema(description = "岗位名称， 冗余")
     private String post;
 
     @Schema(description = "回复语速(秒)")
+    @Max(3600)
+    @Min(0)
     private Integer speed;
 
     @Schema(description = "人工智能雇员会在客户发送最末信息（单条或多条）后 多少 秒后，整体理解，再统一回复")
+    @Max(36000)
+    @Min(-100)
     private Integer replyDelay;
 
     @Schema(description = "限流设置，总共时间跨度(秒)")
+    @Max(36000)
+    @Min(0)
     private Integer rateLimitDuration;
 
     @Schema(description = "限流设置，多少个问题")
+    @Max(10000)
+    @Min(0)
     private Integer rateLimitQuestions;
 
     @Schema(description = "沟通频率和数量超过限制时，应出现的提示语")

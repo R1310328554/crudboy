@@ -11,6 +11,7 @@ import io.swagger.v3.oas.annotations.Operation;
 import javax.validation.constraints.*;
 import javax.validation.*;
 import javax.servlet.http.*;
+import java.math.BigDecimal;
 import java.util.*;
 import java.io.IOException;
 import java.time.LocalDateTime;
@@ -43,6 +44,12 @@ public class BotBaseCfgController {
     @Operation(summary = "创建机器人的基础配置")
     @PreAuthorize("@ss.hasPermission('asc:bot-base-cfg:create')")
     public CommonResult<Long> create(@Valid @RequestBody BotBaseCfgCreateReqVO createReqVO) {
+        BigDecimal temperature = createReqVO.getTemperature();
+        if (temperature.compareTo(BigDecimal.ONE) > 0) {
+            System.err.println("temperature = " + temperature);
+        } else if (temperature.compareTo(BigDecimal.ZERO) < 0) {
+            System.err.println("temperature = " + temperature);
+        }
         return success(service.create(createReqVO));
     }
 
@@ -50,6 +57,12 @@ public class BotBaseCfgController {
     @Operation(summary = "更新机器人的基础配置")
     @PreAuthorize("@ss.hasPermission('asc:bot-base-cfg:update')")
     public CommonResult<Boolean> update(@Valid @RequestBody BotBaseCfgUpdateReqVO updateReqVO) {
+        BigDecimal temperature = updateReqVO.getTemperature();
+        if (temperature.compareTo(BigDecimal.ONE) > 0) {
+            System.err.println("temperature = " + temperature);
+        } else if (temperature.compareTo(BigDecimal.ZERO) < 0) {
+            System.err.println("temperature = " + temperature);
+        }
         service.update(updateReqVO);
         return success(true);
     }

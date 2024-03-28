@@ -4,6 +4,8 @@ import java.util.*;
 
 import cn.iocoder.yudao.framework.common.pojo.PageResult;
 
+import cn.iocoder.yudao.module.asc.controller.admin.report.vo.ReportCreateReqVO;
+import cn.iocoder.yudao.module.asc.controller.admin.report.vo.ReportUpdateReqVO;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 import cn.iocoder.yudao.module.asc.controller.admin.botbasecfg.vo.*;
@@ -31,4 +33,7 @@ public interface BotBaseCfgConvert {
 
     List<BotBaseCfgExcelVO> convertList02(List<BotBaseCfgDO> list);
 
+    BotBaseCfgDO convert(ReportCreateReqVO createReqVO);
+
+    BotBaseCfgDO convert12(ReportUpdateReqVO updateReqVO);
 }

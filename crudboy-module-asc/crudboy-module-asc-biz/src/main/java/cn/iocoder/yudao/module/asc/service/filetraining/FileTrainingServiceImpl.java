@@ -160,8 +160,8 @@ See tika-parsers/pom.xml for the correct version.
     public FileTrainingRespVO train(Long id) {
         FileTrainingDO fileTraining = mapper.selectById(id);
         String trainingStatus = fileTraining.getTrainingStatus();
+        FileTrainingRespVO ret = new FileTrainingRespVO();
         if ("训练完成".equalsIgnoreCase(trainingStatus)) {
-            FileTrainingRespVO ret = new FileTrainingRespVO();
             ret.setTrainingStatus("之前训练完成， 重复执行？ ");
 //            ret.setRemark("");
             ret.setTokenCnt(fileTraining.getTokenCnt());
@@ -230,6 +230,14 @@ See tika-parsers/pom.xml for the correct version.
 
                 File ff = new File(path2);
                 length = ff.length();
+
+                if (length > 1024 * 1024 * 100) {
+                    String x = "文件可能 太大了吧 = " + length;
+                    System.out.println(x);
+                    ret.setRemark(x);
+                    return ret;
+                }
+
                 System.out.println("ff = " + ff);
                 System.out.println("ff = " + ff.exists());
 
@@ -242,12 +250,16 @@ See tika-parsers/pom.xml for the correct version.
                 result = HttpUtil.post(ASC_LLM_HOST + "/knowledge_base/upload_docs", paramMap);
                 System.out.println("result = " + result);
 //                  config.getBasePath() + path;
-
+                updateTrainingStatus(fileTraining, result, length);
             } catch (IORuntimeException e) {
                 e.printStackTrace();
                 result = "err:IORuntimeException";
+                ret.setTrainingStatus(result);
+                return ret;
             } catch (ClassCastException e) {
                 result = "err:暂不支持； 仅支持本地文件存储 ";
+                ret.setTrainingStatus(result);
+                return ret;
             } catch (Exception e) {
 //                throw new RuntimeException(e);
                 e.printStackTrace();
@@ -256,16 +268,14 @@ See tika-parsers/pom.xml for the correct version.
                     result = HttpUtil.post(ASC_LLM_HOST + "/knowledge_base/upload_docs", paramMap);
                     System.out.println("result = " + result);
 
-                    fileTraining.setTrainingStatus("训练完成");
-                    fileTraining.setFileName(result);
-                    fileTraining.setFileSize(Math.toIntExact(length));
-                    fileTraining.setRemark(result);
-                    mapper.updateById(fileTraining);
-
+                    updateTrainingStatus(fileTraining, result, length);
                 } catch (Exception e2) {
                     e2.printStackTrace();
-
+                    ret.setTrainingStatus("训练异常");
+                    return ret;
                 }
+            } finally {
+
             }
             /*
             {
@@ -287,7 +297,6 @@ See tika-parsers/pom.xml for the correct version.
 
              */
         }
-        FileTrainingRespVO ret = new FileTrainingRespVO();
         ret.setTrainingStatus("训练完成");
         ret.setFileName(fileTraining.getFileName());
         ret.setId(fileTraining.getId());
@@ -298,6 +307,14 @@ See tika-parsers/pom.xml for the correct version.
         return ret;
     }
 
+    private void updateTrainingStatus(FileTrainingDO fileTraining, String result, long length) {
+        fileTraining.setTrainingStatus("训练完成");
+        fileTraining.setFileName(result);
+        fileTraining.setFileSize(Math.toIntExact(length));
+        fileTraining.setRemark(result);
+        mapper.updateById(fileTraining);
+    }
+
     @Override
     public List<FileTrainingRespVO> train(Collection<Long> ids) {
         List<FileTrainingRespVO> ret = new ArrayList<>();
@@ -305,12 +322,14 @@ See tika-parsers/pom.xml for the correct version.
             for (Iterator<Long> iterator = ids.iterator(); iterator.hasNext(); ) {
                 Long aLong = iterator.next();
 //                System.out.println("aLong = " + aLong);
-                FileTrainingRespVO train = null;
+                FileTrainingRespVO train = new FileTrainingRespVO();
                 try {
                     train = train(aLong);
                 } catch (Exception e) {
 //                    throw new RuntimeException(e);
                     e.printStackTrace();
+                    train.setTrainingStatus("训练异常");
+                    train.setId(aLong);
                 }
                 ret.add(train);
             }

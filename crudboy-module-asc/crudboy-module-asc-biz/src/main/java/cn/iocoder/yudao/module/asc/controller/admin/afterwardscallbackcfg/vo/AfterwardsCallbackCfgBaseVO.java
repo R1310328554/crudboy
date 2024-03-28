@@ -27,6 +27,8 @@ public class AfterwardsCallbackCfgBaseVO {
     private String afterwardsReply;
 
     @Schema(description = "接触时机, 最后沟通后的多少小时后？")
+    @Max(24*10000)
+    @Min(0)
     private Integer callbackDelay;
 
     @Schema(description = "是否需要结合所有上下文, Y or N")
