@@ -157,6 +157,11 @@ yudao:
       - /admin-api/pay/notify/** # 支付回调通知，不携带租户编号
       - /jmreport/* # 积木报表，无法携带租户编号
       - /admin-api/mp/open/** # 微信公众号开放平台，微信回调接口，无法携带租户编号
+
+      - /admin-api/system/dict-type/get #
+      - /admin-api/system/dict-data/get #  ， ，无法携带租户编号
+      - /admin-api/system/dict-data/list-all-simple #  ， ，无法携带租户编号
+
     ignore-tables:
       - system_tenant
       - system_tenant_package
