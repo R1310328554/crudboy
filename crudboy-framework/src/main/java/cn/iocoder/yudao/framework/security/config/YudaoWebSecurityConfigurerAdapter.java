@@ -112,6 +112,10 @@ public class YudaoWebSecurityConfigurerAdapter {
 
         // 获得 @PermitAll 带来的 URL 列表，免登录
         Multimap<HttpMethod, String> permitAllUrls = getPermitAllUrlsFromAnnotations();
+
+        System.out.println("securityProperties.getPermitAllUrls() = " + securityProperties.getPermitAllUrls());
+        System.out.println("authorizeRequestsCustomizers = " + authorizeRequestsCustomizers);
+
         // 设置每个请求的权限
         httpSecurity
                 // ①：全局共享规则
@@ -129,6 +133,7 @@ public class YudaoWebSecurityConfigurerAdapter {
                 .antMatchers(buildAppApi("/**")).permitAll()
                 // 1.5 验证码captcha 允许匿名访问
                 .antMatchers("/captcha/get", "/captcha/check").permitAll()
+                .antMatchers("/dict-data/list-all-simple", "/dict-data/get", "/dict-type/get").permitAll()
                 // 1.6 webSocket 允许匿名访问
                 .antMatchers("/websocket/message").permitAll()
                 // ②：每个项目的自定义规则
