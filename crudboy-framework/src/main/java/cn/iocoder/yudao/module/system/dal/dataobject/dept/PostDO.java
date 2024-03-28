@@ -33,6 +33,10 @@ public class PostDO extends BaseDO {
      */
     private String code;
     /**
+     * 知识库
+     */
+    private String knowledgeBaseName;
+    /**
      * 岗位排序
      */
     private Integer sort;

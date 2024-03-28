@@ -1,4 +1,14 @@
 ### 请求 /menu/list 接口 => 成功
-GET {{baseUrl}}/system/dict-data/list-all-simple
+GET localhost:48080/system/dict-data/list-all-simple
 Authorization: Bearer {{token}}
-tenant-id: {{adminTenentId}}
+#tenant-id: {{adminTenentId}}
+
+###
+GET localhost:48080/admin-api/system/dict-data/list-all-simple
+
+###
+POST localhost:48080/admin-api/system/captcha/check
+#Authorization: Bearer {{token}}
+
+{"captchaType":"blockPuzzle","pointJson":"JMxSnjy1ayse0o2MRwW2CAE8AboJqCf4kraovFNJGD4=","token":"902d77af8e064fcdb88affb9d4521b29"}
+#

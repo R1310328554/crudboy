@@ -23,6 +23,10 @@ public class PostBaseVO {
     @Size(max = 64, message = "岗位编码长度不能超过64个字符")
     private String code;
 
+    @Schema(description = "知识库", example = "common")
+    @Size(max = 64, message = "知识库长度不能超过64个字符")
+    private String knowledgeBaseName;
+
     @Schema(description = "显示顺序不能为空", requiredMode = Schema.RequiredMode.REQUIRED, example = "1024")
     @NotNull(message = "显示顺序不能为空")
     private Integer sort;
