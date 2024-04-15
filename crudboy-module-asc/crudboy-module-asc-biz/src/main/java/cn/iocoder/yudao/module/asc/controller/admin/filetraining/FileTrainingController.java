@@ -112,13 +112,4 @@ public class FileTrainingController {
 //        return success(WebsiteTrainingConvert.INSTANCE.convertList(list));
     }
 
-    @GetMapping("/createKnowledgeBase")
-    @Operation(summary = "创建知识库")
-    @PreAuthorize("@ss.hasPermission('asc:file-training:update')")
-    public CommonResult<String> createKnowledgeBase(String knowledge_base_name) {
-        String ret = service.createKnowledgeBase(knowledge_base_name);
-        return success(ret);
-//        return success(WebsiteTrainingConvert.INSTANCE.convertList(list));
-    }
-
 }

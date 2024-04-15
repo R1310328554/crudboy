@@ -18,7 +18,7 @@ import static cn.iocoder.yudao.framework.common.util.date.DateUtils.FORMAT_YEAR_
 @ToString(callSuper = true)
 public class ChatMsgPageReqVO extends PageParam {
 
-    @Schema(description = "方向，即问还是答，分别是：1,2")
+    @Schema(description = "方向，即问还是答，分别是：true, false")
     private Boolean direction;
 
     @Schema(description = "聊天的会话id", requiredMode = Schema.RequiredMode.REQUIRED)
